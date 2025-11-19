@@ -170,7 +170,7 @@ const Hero: React.FC<HeroProps> = ({
           </motion.div>
         )}
 
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-white leading-[1.1] mb-8">
+        <h1 className="text-[2.75rem] md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-white leading-[1.1] mb-8">
           {headline}
         </h1>
 
