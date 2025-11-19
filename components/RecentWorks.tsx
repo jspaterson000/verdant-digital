@@ -29,12 +29,12 @@ const RecentWorks: React.FC = () => {
   return (
     <section id="works" className="py-24 bg-black border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 text-center md:text-left">
           <div>
              <h2 className="text-verdant-accent text-sm font-bold tracking-[0.2em] uppercase mb-2">Portfolio</h2>
              <h3 className="text-4xl md:text-5xl font-display font-bold text-white">Recent Works</h3>
           </div>
-          <p className="text-gray-500 mt-4 md:mt-0 max-w-md text-right">
+          <p className="text-gray-500 mt-4 md:mt-0 max-w-md md:text-right">
             Selected projects showcasing our range across custom dev, e-commerce, and corporate identity.
           </p>
         </div>

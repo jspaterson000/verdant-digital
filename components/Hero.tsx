@@ -24,27 +24,41 @@ const Hero: React.FC<HeroProps> = ({
   features
 }) => {
   const containerRef = useRef<HTMLElement>(null);
-  
-  // Mouse interaction
+
+  // Mouse interaction - throttled for performance
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const springConfig = { damping: 20, stiffness: 100, mass: 0.5 };
+  const springConfig = { damping: 25, stiffness: 120, mass: 0.3 };
   const x = useSpring(mouseX, springConfig);
   const y = useSpring(mouseY, springConfig);
 
   useEffect(() => {
+    let rafId: number;
+    let lastTime = 0;
+    const throttleMs = 16; // ~60fps
+
     const handleMouseMove = (e: MouseEvent) => {
-      const { innerWidth, innerHeight } = window;
-      const centerX = innerWidth / 2;
-      const centerY = innerHeight / 2;
-      
-      mouseX.set(e.clientX - centerX);
-      mouseY.set(e.clientY - centerY);
+      const now = performance.now();
+      if (now - lastTime < throttleMs) return;
+      lastTime = now;
+
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const { innerWidth, innerHeight } = window;
+        const centerX = innerWidth / 2;
+        const centerY = innerHeight / 2;
+
+        mouseX.set((e.clientX - centerX) * 0.02);
+        mouseY.set((e.clientY - centerY) * 0.02);
+      });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, [mouseX, mouseY]);
 
   const { scrollYProgress } = useScroll({
@@ -73,27 +87,47 @@ const Hero: React.FC<HeroProps> = ({
       
       {/* Animated Background Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <motion.div 
-          style={{ x, y }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-verdant-900/20 rounded-full blur-[120px] mix-blend-screen"
-        />
-        
-        <motion.div 
-          animate={{ 
-            x: [0, 100, -100, 0],
-            y: [0, -100, 100, 0],
-            scale: [1, 1.2, 1]
+        <motion.div
+          style={{ x, y, willChange: 'transform' }}
+          animate={{
+            scale: [1, 1.2, 0.9, 1],
           }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-0 left-0 w-[500px] h-[500px] bg-verdant-accent/5 rounded-full blur-[100px]"
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] md:w-[700px] md:h-[700px] bg-verdant-900/50 md:bg-verdant-900/30 rounded-full blur-[50px] md:blur-[100px] mix-blend-screen"
         />
-        <motion.div 
-          animate={{ 
-            x: [0, -50, 50, 0],
-            y: [0, 50, -50, 0],
+
+        <motion.div
+          animate={{
+            x: [0, 150, -100, 50, 0],
+            y: [0, -120, 80, -50, 0],
+            scale: [1, 1.3, 0.8, 1.1, 1],
           }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-900/10 rounded-full blur-[100px]"
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", repeatType: "loop" }}
+          style={{ willChange: 'transform' }}
+          className="absolute top-0 left-0 w-[280px] h-[280px] md:w-[550px] md:h-[550px] bg-verdant-accent/25 md:bg-verdant-accent/15 rounded-full blur-[40px] md:blur-[70px]"
+        />
+
+        <motion.div
+          animate={{
+            x: [0, -80, 60, -40, 0],
+            y: [0, 70, -60, 40, 0],
+            scale: [1, 0.9, 1.2, 0.95, 1],
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", repeatType: "loop" }}
+          style={{ willChange: 'transform' }}
+          className="absolute bottom-0 right-0 w-[280px] h-[280px] md:w-[450px] md:h-[450px] bg-blue-900/35 md:bg-blue-900/20 rounded-full blur-[40px] md:blur-[70px]"
+        />
+
+        <motion.div
+          animate={{
+            x: [0, -60, 80, -30, 0],
+            y: [0, 90, -70, 50, 0],
+            scale: [1, 1.1, 0.85, 1.05, 1],
+            opacity: [0.3, 0.5, 0.2, 0.4, 0.3],
+          }}
+          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", repeatType: "loop" }}
+          style={{ willChange: 'transform' }}
+          className="absolute top-1/3 right-1/4 w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-green-500/20 md:bg-green-500/10 rounded-full blur-[45px] md:blur-[75px]"
         />
       </div>
 
@@ -106,17 +140,17 @@ const Hero: React.FC<HeroProps> = ({
         className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
       >
         {showStatus && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-10 hover:bg-white/10 transition-colors"
+            className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-10 hover:bg-white/10 transition-colors mx-4"
           >
-            <span className="relative flex h-2 w-2">
+            <span className="relative flex h-2 w-2 flex-shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-verdant-accent opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-verdant-accent"></span>
             </span>
-            <span className="text-xs font-medium text-gray-300 tracking-widest uppercase">
+            <span className="text-[10px] sm:text-xs font-medium text-gray-300 tracking-wider sm:tracking-widest uppercase whitespace-nowrap">
               Accepting New Clients: November Slots Open
             </span>
           </motion.div>
@@ -172,12 +206,12 @@ const Hero: React.FC<HeroProps> = ({
         </motion.div>
       </motion.div>
 
-      {/* Scroll Indicator */}
-      <motion.div 
+      {/* Scroll Indicator - Hidden on mobile to avoid overlap with CTAs */}
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
+        className="hidden md:flex absolute bottom-10 left-1/2 transform -translate-x-1/2 flex-col items-center gap-2 pointer-events-none"
       >
         <span className="text-[10px] uppercase tracking-[0.3em] text-gray-600">Scroll</span>
         <div className="w-[1px] h-12 bg-gradient-to-b from-verdant-accent/50 to-transparent"></div>
