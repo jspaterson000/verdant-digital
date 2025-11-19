@@ -3,9 +3,13 @@ import Navbar from './components/Navbar';
 import TradieLanding from './pages/TradieLanding';
 import AgencyHome from './pages/AgencyHome';
 import Footer from './components/Footer';
+import PathChoiceModal from './components/PathChoiceModal';
+import CheckoutModal from './components/CheckoutModal';
+import ConsultationModal from './components/ConsultationModal';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<'agency' | 'tradie'>('agency');
+  const [modalState, setModalState] = useState<'closed' | 'path-choice' | 'express' | 'consultation'>('closed');
 
   useEffect(() => {
     // Simple hash routing
@@ -43,11 +47,37 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black text-white selection:bg-verdant-accent selection:text-black">
-      <Navbar currentPage={currentPage} onNavigate={navigateTo} />
+      <Navbar
+        currentPage={currentPage}
+        onNavigate={navigateTo}
+        onStartProject={() => setModalState('path-choice')}
+      />
       <main>
-        {currentPage === 'agency' ? <AgencyHome /> : <TradieLanding />}
+        {currentPage === 'agency' ? <AgencyHome /> : <TradieLanding onStartCheckout={() => setModalState('path-choice')} />}
       </main>
       <Footer />
+
+      {/* Path Choice Modal - First step */}
+      <PathChoiceModal
+        isOpen={modalState === 'path-choice'}
+        onClose={() => setModalState('closed')}
+        onSelectExpress={() => setModalState('express')}
+        onSelectConsultation={() => setModalState('consultation')}
+      />
+
+      {/* Express Checkout Modal */}
+      <CheckoutModal
+        isOpen={modalState === 'express'}
+        onClose={() => setModalState('closed')}
+        onRedirectToConsultation={() => setModalState('consultation')}
+      />
+
+      {/* Consultation Booking Modal */}
+      <ConsultationModal
+        isOpen={modalState === 'consultation'}
+        onClose={() => setModalState('closed')}
+        onBack={() => setModalState('path-choice')}
+      />
     </div>
   );
 };

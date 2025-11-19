@@ -1,0 +1,48 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="structa-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="structa-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#structa-bg)"/>
+
+  <!-- Grid pattern overlay -->
+  <g opacity="0.1">
+    <line x1="0" y1="200" x2="1200" y2="200" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="400" x2="1200" y2="400" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="600" x2="1200" y2="600" stroke="white" stroke-width="1"/>
+    <line x1="300" y1="0" x2="300" y2="800" stroke="white" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="800" stroke="white" stroke-width="1"/>
+    <line x1="900" y1="0" x2="900" y2="800" stroke="white" stroke-width="1"/>
+  </g>
+
+  <!-- Dashboard mockup elements -->
+  <rect x="100" y="100" width="1000" height="600" rx="20" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+
+  <!-- Header bar -->
+  <rect x="100" y="100" width="1000" height="80" rx="20" fill="rgba(59,130,246,0.2)"/>
+
+  <!-- Side panel -->
+  <rect x="100" y="180" width="250" height="520" fill="rgba(255,255,255,0.03)"/>
+
+  <!-- Cards -->
+  <rect x="380" y="220" width="300" height="150" rx="10" fill="url(#structa-accent)" opacity="0.3"/>
+  <rect x="720" y="220" width="300" height="150" rx="10" fill="rgba(255,255,255,0.1)"/>
+  <rect x="380" y="400" width="640" height="250" rx="10" fill="rgba(255,255,255,0.08)"/>
+
+  <!-- Logo text -->
+  <text x="600" y="500" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="white" text-anchor="middle" opacity="0.4">
+    STRUCTA
+  </text>
+  <text x="600" y="550" font-family="Arial, sans-serif" font-size="36" fill="#60a5fa" text-anchor="middle" opacity="0.6">
+    Claims Management
+  </text>
+</svg>

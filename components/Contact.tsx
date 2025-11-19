@@ -44,32 +44,32 @@ const Contact: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
-            <h2 className="text-verdant-accent text-sm font-bold tracking-[0.2em] uppercase mb-2">Start Now</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-8">Secure Your Week.</h3>
+            <h2 className="text-verdant-accent text-sm font-bold tracking-[0.2em] uppercase mb-2">Get In Touch</h2>
+            <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-8">Let's Build Something Great.</h3>
             <p className="text-gray-400 text-lg mb-8">
-              We only onboard 5 new trade businesses per week to ensure quality. Fill out the form to lock in the $299 rate.
+              Ready to take your business online? Fill out the form and we'll get back to you within 24 hours.
             </p>
 
             <div className="space-y-6">
                 <div className="flex items-start gap-4">
                    <CheckCircle2 className="text-verdant-accent mt-1" />
                    <div>
-                       <h4 className="text-white font-bold">Fast Turnaround</h4>
-                       <p className="text-gray-500">First draft in 3 days. Live in 7.</p>
+                       <h4 className="text-white font-bold">Fast Response</h4>
+                       <p className="text-gray-500">We'll get back to you within 24 hours.</p>
                    </div>
                 </div>
                 <div className="flex items-start gap-4">
                    <CheckCircle2 className="text-verdant-accent mt-1" />
                    <div>
                        <h4 className="text-white font-bold">Australian Based</h4>
-                       <p className="text-gray-500">We know the local market and slang.</p>
+                       <p className="text-gray-500">Local team, local support.</p>
                    </div>
                 </div>
                  <div className="flex items-start gap-4">
                    <CheckCircle2 className="text-verdant-accent mt-1" />
                    <div>
-                       <h4 className="text-white font-bold">No IT Headaches</h4>
-                       <p className="text-gray-500">We handle the nerdy stuff. You handle the tools.</p>
+                       <h4 className="text-white font-bold">No Obligation</h4>
+                       <p className="text-gray-500">Free consultation to discuss your needs.</p>
                    </div>
                 </div>
             </div>
@@ -111,13 +111,14 @@ const Contact: React.FC = () => {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm text-gray-400 uppercase tracking-wider">Trade / Industry</label>
+              <label className="text-sm text-gray-400 uppercase tracking-wider">Industry</label>
                <select name="trade" className="w-full bg-black border border-zinc-700 text-white p-3 rounded focus:border-verdant-accent focus:outline-none transition-colors" required>
-                   <option>Plumbing</option>
-                   <option>Electrical</option>
-                   <option>Building / Carpentry</option>
-                   <option>Landscaping</option>
-                   <option>Painting</option>
+                   <option value="">Select your industry...</option>
+                   <option>Trades (Plumbing, Electrical, etc.)</option>
+                   <option>Retail / E-commerce</option>
+                   <option>Professional Services</option>
+                   <option>Hospitality / Food</option>
+                   <option>Health / Wellness</option>
                    <option>Other</option>
                </select>
             </div>
@@ -127,7 +128,7 @@ const Contact: React.FC = () => {
               disabled={isSubmitting}
               className="w-full bg-verdant-600 text-white font-bold uppercase tracking-wider py-4 rounded hover:bg-verdant-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? 'Sending...' : 'Book Build Slot'}
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
 
             {submitStatus === 'success' && (

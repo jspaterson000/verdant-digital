@@ -4,9 +4,10 @@ import { Menu, X, Zap } from 'lucide-react';
 interface NavbarProps {
   currentPage: 'agency' | 'tradie';
   onNavigate: (page: 'agency' | 'tradie') => void;
+  onStartProject?: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
+const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onStartProject }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -82,7 +83,13 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
             </button>
           ))}
           <button
-            onClick={(e) => scrollToSection(e, '#contact')}
+            onClick={(e) => {
+              if (currentPage === 'tradie' && onStartProject) {
+                onStartProject();
+              } else {
+                scrollToSection(e, '#contact');
+              }
+            }}
             className="px-5 py-2 bg-white text-black text-sm font-bold uppercase tracking-wider hover:bg-verdant-accent transition-all duration-300"
           >
             {currentPage === 'agency' ? 'Enquire' : 'Start Project'}
@@ -115,8 +122,15 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
               {link.name}
             </button>
           ))}
-          <button 
-            onClick={(e) => scrollToSection(e, '#contact')} 
+          <button
+            onClick={(e) => {
+              if (currentPage === 'tradie' && onStartProject) {
+                onStartProject();
+              } else {
+                scrollToSection(e, '#contact');
+              }
+              setMobileMenuOpen(false);
+            }}
             className="text-left text-lg font-display font-medium text-verdant-accent pl-4"
           >
              {currentPage === 'agency' ? 'Enquire Now' : 'Start Project'}

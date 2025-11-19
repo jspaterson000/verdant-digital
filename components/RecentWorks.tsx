@@ -6,21 +6,24 @@ const projects = [
     name: "Structa Claims",
     category: "Corporate Web Design",
     url: "https://structa.claims",
-    desc: "Professional claims management platform.",
+    desc: "End-to-end claims management platform built for construction professionals. Custom dashboard with real-time tracking, document management, and automated workflows.",
+    image: "/works/structa-claims.svg",
     color: "from-blue-900 to-slate-900"
   },
   {
     name: "Bread Bloom",
     category: "E-commerce / Brand",
     url: "https://breadbloom.com.au",
-    desc: "Artisan bakery digital presence.",
+    desc: "Artisan bakery e-commerce site featuring online ordering, delivery scheduling, and subscription management. Built with Shopify for seamless checkout experience.",
+    image: "/works/bread-bloom.svg",
     color: "from-orange-900 to-amber-900"
   },
   {
     name: "Newstead Plant Co",
     category: "Shopify E-commerce",
     url: "https://newsteadplantco.com.au",
-    desc: "Modern plant retailer shopfront.",
+    desc: "Modern plant retailer with inventory management, care guides, and location-based delivery. Optimized for mobile shopping with high-res product photography.",
+    image: "/works/newstead-plant-co.svg",
     color: "from-green-900 to-emerald-900"
   }
 ];
@@ -41,18 +44,32 @@ const RecentWorks: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {projects.map((project, i) => (
-            <a 
+            <a
               key={i}
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative block h-80 rounded-2xl overflow-hidden border border-white/10 hover:border-verdant-accent/50 transition-all duration-500"
             >
-              {/* Background Gradient Placeholder (simulating image) */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-40 group-hover:opacity-60 transition-opacity duration-500`}></div>
-              
+              {/* Background Image with Gradient Overlay */}
+              <div className="absolute inset-0">
+                <img
+                  src={project.image}
+                  alt={`${project.name} website preview`}
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  onError={(e) => {
+                    // Fallback to gradient if image doesn't load
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+                {/* Gradient overlay for better text readability */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-70 group-hover:opacity-50 transition-opacity duration-500`}></div>
+                {/* Dark gradient from bottom for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80"></div>
+              </div>
+
               {/* Content Overlay */}
-              <div className="absolute inset-0 p-8 flex flex-col justify-between">
+              <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
                 <div className="flex justify-end">
                   <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:bg-verdant-accent group-hover:text-black transition-all duration-300">
                     <ArrowUpRight size={20} />
@@ -63,8 +80,8 @@ const RecentWorks: React.FC = () => {
                   <span className="inline-block px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-xs text-gray-300 mb-3">
                     {project.category}
                   </span>
-                  <h4 className="text-2xl font-bold text-white mb-1">{project.name}</h4>
-                  <p className="text-gray-400 text-sm opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                  <h4 className="text-2xl font-bold text-white mb-2">{project.name}</h4>
+                  <p className="text-gray-300 text-sm leading-relaxed opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 max-w-sm">
                     {project.desc}
                   </p>
                 </div>

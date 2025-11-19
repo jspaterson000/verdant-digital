@@ -1,7 +1,11 @@
 import React from 'react';
 import { Check, ShieldCheck } from 'lucide-react';
 
-const Pricing: React.FC = () => {
+interface PricingProps {
+  onStartCheckout?: () => void;
+}
+
+const Pricing: React.FC<PricingProps> = ({ onStartCheckout }) => {
   return (
     <section id="pricing" className="py-24 bg-black border-t border-white/10 relative overflow-hidden">
       {/* Glow Effect */}
@@ -61,9 +65,12 @@ const Pricing: React.FC = () => {
                ))}
              </ul>
 
-             <a href="#contact" className="block w-full bg-verdant-accent text-black font-bold uppercase tracking-wider text-center py-4 rounded hover:bg-white transition-all duration-300 hover:scale-[1.02] shadow-[0_0_20px_rgba(74,222,128,0.2)]">
+             <button
+               onClick={onStartCheckout}
+               className="block w-full bg-verdant-accent text-black font-bold uppercase tracking-wider text-center py-4 rounded hover:bg-white transition-all duration-300 hover:scale-[1.02] shadow-[0_0_20px_rgba(74,222,128,0.2)]"
+             >
                Secure This Price
-             </a>
+             </button>
              
              <div className="mt-6 flex items-center justify-center gap-2 text-gray-500 text-xs">
                 <ShieldCheck size={14} className="text-verdant-accent" />

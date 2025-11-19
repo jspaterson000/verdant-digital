@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
              <div className="w-6 h-6 bg-zinc-800 text-white flex items-center justify-center rounded-sm">
                 <Zap size={14} fill="currentColor" />
              </div>
-             <span className="text-lg font-display font-bold text-white">VERDANT</span>
+             <span className="text-lg font-display font-bold text-white">Verdant Digital</span>
           </div>
           
           <div className="flex space-x-6 text-gray-400">

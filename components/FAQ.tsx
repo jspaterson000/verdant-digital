@@ -3,6 +3,10 @@ import { Plus, Minus } from 'lucide-react';
 
 const faqs = [
   {
+    q: "Will I get leads immediately after my website launches?",
+    a: "Your website is designed to convert visitors into leads with professional design, clear calls-to-action, and optimized contact forms. However, you'll need to drive traffic to it through Google Ads (fastest - leads within 48 hours), local SEO (long-term organic traffic), social media marketing, or traditional advertising with your website URL. Most successful tradies combine their new website with Google Ads for immediate, consistent leads. We can help set this up for you!"
+  },
+  {
     q: "Is the website really mine?",
     a: "Yes. While you rent the service from us for the first 24 months, the content and domain are yours. After the contract, you can move it or stay with us for a reduced maintenance fee."
   },

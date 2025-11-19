@@ -20,7 +20,7 @@ const Process: React.FC = () => {
               <Phone className="w-10 h-10 text-white group-hover:text-verdant-accent transition-colors" />
             </div>
             <div className="bg-black px-4 pb-2">
-               <h4 className="text-xl font-bold text-white mb-2">Day 1: Brief Chat</h4>
+               <h4 className="text-xl font-bold text-white mb-2">Day 1: Quick Kickoff Chat</h4>
                <p className="text-gray-400 text-sm">A 15-minute call to get your details. We handle the writing, photos, and structure.</p>
             </div>
           </div>
