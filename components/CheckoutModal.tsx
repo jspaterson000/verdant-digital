@@ -46,14 +46,38 @@ const CheckoutForm: React.FC<{ onSuccess: () => void; businessInfo: BusinessInfo
       const cardElement = elements.getElement(CardElement);
       if (!cardElement) return;
 
-      // Create payment method
-      const { error: stripeError, paymentMethod } = await stripe.createPaymentMethod({
-        type: 'card',
-        card: cardElement,
-        billing_details: {
-          name: businessInfo.contactName,
-          email: businessInfo.email,
-          phone: businessInfo.phone,
+      // Call backend to create payment intent
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
+      const response = await fetch(`${backendUrl}/create-payment-intent`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          amount: 29900, // $299 in cents
+          businessInfo,
+          wantsGoogleAds,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create payment intent');
+      }
+
+      const { clientSecret } = await response.json();
+
+      // Confirm the payment with the card details
+      const { error: stripeError, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: cardElement,
+          billing_details: {
+            name: businessInfo.contactName,
+            email: businessInfo.email,
+            phone: businessInfo.phone,
+            address: {
+              line1: businessInfo.address,
+            },
+          },
         },
       });
 
@@ -63,25 +87,18 @@ const CheckoutForm: React.FC<{ onSuccess: () => void; businessInfo: BusinessInfo
         return;
       }
 
-      // Here you would typically send the paymentMethod.id to your backend
-      // For now, we'll simulate a successful payment
-      console.log('Payment Method:', paymentMethod);
-      console.log('Business Info:', businessInfo);
-
-      // Send to your backend for processing
-      // await fetch('/api/process-payment', {
-      //   method: 'POST',
-      //   body: JSON.stringify({ paymentMethodId: paymentMethod.id, businessInfo })
-      // });
-
-      // Simulate success after 2 seconds
-      setTimeout(() => {
+      if (paymentIntent?.status === 'succeeded') {
+        console.log('Payment succeeded:', paymentIntent.id);
         onSuccess();
-        setIsProcessing(false);
-      }, 2000);
+      } else {
+        setError('Payment was not successful');
+      }
+
+      setIsProcessing(false);
 
     } catch (err) {
-      setError('An unexpected error occurred');
+      console.error('Payment error:', err);
+      setError(err instanceof Error ? err.message : 'An unexpected error occurred');
       setIsProcessing(false);
     }
   };
