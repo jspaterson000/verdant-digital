@@ -47,8 +47,8 @@ const CheckoutForm: React.FC<{ onSuccess: () => void; businessInfo: BusinessInfo
       if (!cardElement) return;
 
       // Call backend to create payment intent
-      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
-      const response = await fetch(`${backendUrl}/create-payment-intent`, {
+      // On Vercel, API routes are at /api/* on the same domain
+      const response = await fetch('/api/create-payment-intent', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
