@@ -404,32 +404,33 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, onRedire
           </AnimatePresence>
 
           {/* Modal */}
-          <div className="fixed inset-0 flex items-center justify-center z-50 p-4 overflow-y-auto">
+          <div className="fixed inset-0 flex items-center justify-center z-50 p-2 sm:p-4 overflow-y-auto">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: 'spring', duration: 0.5 }}
-              className="bg-zinc-950 border border-white/10 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-zinc-950 border border-white/10 rounded-2xl shadow-2xl max-w-2xl w-full my-auto max-h-[95vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className="sticky top-0 bg-zinc-950 border-b border-white/10 p-6 z-10">
-                <div className="flex justify-between items-start mb-3">
+              <div className="sticky top-0 bg-zinc-950 border-b border-white/10 p-4 sm:p-6 z-10">
+                <div className="flex justify-between items-start mb-2 sm:mb-3">
                   <div>
-                    <h2 className="text-2xl font-display font-bold text-white">Start Your Build</h2>
-                    <p className="text-gray-400 text-sm mt-1">Live in 7 days, guaranteed</p>
+                    <h2 className="text-xl sm:text-2xl font-display font-bold text-white">Start Your Build</h2>
+                    <p className="text-gray-400 text-xs sm:text-sm mt-1">Live in 7 days, guaranteed</p>
                   </div>
                   <button
                     onClick={handleClose}
-                    className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-lg"
+                    className="text-gray-400 hover:text-white transition-colors p-1 sm:p-2 hover:bg-white/5 rounded-lg"
                   >
-                    <X size={24} />
+                    <X size={20} className="sm:hidden" />
+                    <X size={24} className="hidden sm:block" />
                   </button>
                 </div>
 
                 {/* Urgency & Social Proof Bar */}
-                <div className="flex flex-wrap items-center gap-4 text-xs">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs">
                   <div className="flex items-center gap-1.5 text-orange-400">
                     <Clock size={14} />
                     <span className="font-medium">Only 2 November slots left</span>
@@ -495,7 +496,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, onRedire
               )}
 
               {/* Content */}
-              <div className="p-6 min-h-[500px]">
+              <div className="p-4 sm:p-6">
                 <AnimatePresence mode="wait">
                   {/* Step 0: Scope Check */}
                   {step === 'scope-check' && (
@@ -505,19 +506,18 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, onRedire
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.2 }}
-                      className="min-h-[400px]"
                     >
-                      <h3 className="text-xl font-bold text-white mb-2">Quick Check: Is Express Right for You?</h3>
-                      <p className="text-gray-400 mb-6">Our Express Build includes a standard 5-page website. Let's make sure it fits your needs!</p>
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2">Quick Check: Is Express Right for You?</h3>
+                      <p className="text-gray-400 text-sm mb-4 sm:mb-6">Our Express Build includes a standard 5-page website. Let's make sure it fits your needs!</p>
 
-                      <div className="space-y-4 mb-6">
+                      <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
                         {/* What's Included */}
-                        <div className="bg-verdant-900/20 border border-verdant-accent/20 rounded-lg p-4">
-                          <h4 className="text-white font-bold mb-3 flex items-center gap-2">
-                            <CheckCircle className="text-verdant-accent" size={18} />
+                        <div className="bg-verdant-900/20 border border-verdant-accent/20 rounded-lg p-3 sm:p-4">
+                          <h4 className="text-white font-bold mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
+                            <CheckCircle className="text-verdant-accent" size={16} />
                             Express Build Includes:
                           </h4>
-                          <ul className="space-y-2 text-sm text-gray-300">
+                          <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-gray-300">
                             <li className="flex items-center gap-2">
                               <div className="w-1.5 h-1.5 rounded-full bg-verdant-accent"></div>
                               5 pages (Home, About, Services, Gallery, Contact)
@@ -542,9 +542,9 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, onRedire
                         </div>
 
                         {/* Warning for Complex Features */}
-                        <div className="bg-orange-900/20 border border-orange-500/30 rounded-lg p-4">
-                          <h4 className="text-orange-300 font-bold mb-2 text-sm">Express Build is NOT for:</h4>
-                          <ul className="space-y-1.5 text-xs text-gray-400">
+                        <div className="bg-orange-900/20 border border-orange-500/30 rounded-lg p-3 sm:p-4">
+                          <h4 className="text-orange-300 font-bold mb-2 text-xs sm:text-sm">Express Build is NOT for:</h4>
+                          <ul className="space-y-1 sm:space-y-1.5 text-xs text-gray-400">
                             <li className="flex items-center gap-2">
                               <X size={12} className="text-orange-400" />
                               E-commerce or online stores
@@ -566,12 +566,13 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, onRedire
                         </div>
                       </div>
 
-                      <div className="space-y-3">
+                      <div className="space-y-2 sm:space-y-3">
                         <button
                           onClick={() => setStep('ads-upsell')}
-                          className="w-full bg-verdant-accent text-black font-bold py-4 rounded-lg hover:bg-white transition-all flex items-center justify-center gap-2"
+                          className="w-full bg-verdant-accent text-black font-bold py-3 sm:py-4 rounded-lg hover:bg-white transition-all flex items-center justify-center gap-2 text-sm sm:text-base"
                         >
-                          <CheckCircle size={20} />
+                          <CheckCircle size={18} className="sm:hidden" />
+                          <CheckCircle size={20} className="hidden sm:block" />
                           Perfect! Continue with Express Build
                         </button>
 
@@ -581,15 +582,16 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, onRedire
                               handleClose();
                               onRedirectToConsultation();
                             }}
-                            className="w-full bg-zinc-800 text-white font-bold py-4 rounded-lg hover:bg-zinc-700 transition-all flex items-center justify-center gap-2 border border-white/10"
+                            className="w-full bg-zinc-800 text-white font-bold py-3 sm:py-4 rounded-lg hover:bg-zinc-700 transition-all flex items-center justify-center gap-2 border border-white/10 text-sm sm:text-base"
                           >
-                            <Phone size={20} />
+                            <Phone size={18} className="sm:hidden" />
+                            <Phone size={20} className="hidden sm:block" />
                             I need custom features - Book Free Call
                           </button>
                         )}
                       </div>
 
-                      <p className="text-xs text-gray-500 text-center mt-4">
+                      <p className="text-xs text-gray-500 text-center mt-3 sm:mt-4">
                         Not sure? Book a free call to discuss your needs - no obligation!
                       </p>
                     </motion.div>

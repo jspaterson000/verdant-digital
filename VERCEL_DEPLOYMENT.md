@@ -81,11 +81,6 @@ Name: VITE_STRIPE_PUBLISHABLE_KEY
 Value: pk_live_51SVBDYIXN4PzuK3wlL9JEZua57lfB3jkeVwUMtPhI4NtGIsA7qpujVQbQXOI183iFjX2LdZ4h7sRjRE0tIzEb73V00FDOvz5Ub
 ```
 
-```
-Name: GEMINI_API_KEY
-Value: PLACEHOLDER_API_KEY
-```
-
 #### Runtime Variables (for API functions):
 
 ```
