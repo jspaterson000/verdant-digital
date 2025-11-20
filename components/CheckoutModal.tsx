@@ -633,17 +633,17 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, onRedire
                         </div>
 
                         <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
-                          <li className="flex items-start gap-2 sm:gap-3 text-gray-300 text-xs sm:text-sm">
+                          <li className="flex items-start gap-2 sm:gap-3 text-gray-300 text-sm leading-snug">
                             <CheckCircle size={16} className="text-verdant-accent flex-shrink-0 mt-0.5 sm:hidden" />
                             <CheckCircle size={20} className="text-verdant-accent flex-shrink-0 mt-0.5 hidden sm:block" />
                             <span>We run ads targeting people actively searching for your services in your area</span>
                           </li>
-                          <li className="flex items-start gap-2 sm:gap-3 text-gray-300 text-xs sm:text-sm">
+                          <li className="flex items-start gap-2 sm:gap-3 text-gray-300 text-sm leading-snug">
                             <CheckCircle size={16} className="text-verdant-accent flex-shrink-0 mt-0.5 sm:hidden" />
                             <CheckCircle size={20} className="text-verdant-accent flex-shrink-0 mt-0.5 hidden sm:block" />
                             <span><strong className="text-white">$300/month ad budget included</strong> - that's 50+ clicks to your new website</span>
                           </li>
-                          <li className="flex items-start gap-2 sm:gap-3 text-gray-300 text-xs sm:text-sm">
+                          <li className="flex items-start gap-2 sm:gap-3 text-gray-300 text-sm leading-snug">
                             <CheckCircle size={16} className="text-verdant-accent flex-shrink-0 mt-0.5 sm:hidden" />
                             <CheckCircle size={20} className="text-verdant-accent flex-shrink-0 mt-0.5 hidden sm:block" />
                             <span>Most tradies see their first lead request within 48 hours</span>

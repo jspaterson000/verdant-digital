@@ -93,28 +93,28 @@ const PathChoiceModal: React.FC<PathChoiceModalProps> = ({
                       </div>
 
                       <ul className="space-y-1.5 sm:space-y-2 md:space-y-3">
-                        <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-300">
-                          <CheckCircle size={14} className="text-verdant-accent flex-shrink-0 mt-0.5 sm:hidden" />
+                        <li className="flex items-start gap-2 text-sm text-gray-300 leading-snug">
+                          <CheckCircle size={15} className="text-verdant-accent flex-shrink-0 mt-0.5 sm:hidden" />
                           <CheckCircle size={16} className="text-verdant-accent flex-shrink-0 mt-0.5 hidden sm:block" />
                           <span>Standard 5-page website</span>
                         </li>
-                        <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-300">
-                          <CheckCircle size={14} className="text-verdant-accent flex-shrink-0 mt-0.5 sm:hidden" />
+                        <li className="flex items-start gap-2 text-sm text-gray-300 leading-snug">
+                          <CheckCircle size={15} className="text-verdant-accent flex-shrink-0 mt-0.5 sm:hidden" />
                           <CheckCircle size={16} className="text-verdant-accent flex-shrink-0 mt-0.5 hidden sm:block" />
                           <span>Mobile responsive design</span>
                         </li>
-                        <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-300">
-                          <CheckCircle size={14} className="text-verdant-accent flex-shrink-0 mt-0.5 sm:hidden" />
+                        <li className="flex items-start gap-2 text-sm text-gray-300 leading-snug">
+                          <CheckCircle size={15} className="text-verdant-accent flex-shrink-0 mt-0.5 sm:hidden" />
                           <CheckCircle size={16} className="text-verdant-accent flex-shrink-0 mt-0.5 hidden sm:block" />
                           <span>Contact form + quote system</span>
                         </li>
-                        <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-300">
-                          <CheckCircle size={14} className="text-verdant-accent flex-shrink-0 mt-0.5 sm:hidden" />
+                        <li className="flex items-start gap-2 text-sm text-gray-300 leading-snug">
+                          <CheckCircle size={15} className="text-verdant-accent flex-shrink-0 mt-0.5 sm:hidden" />
                           <CheckCircle size={16} className="text-verdant-accent flex-shrink-0 mt-0.5 hidden sm:block" />
                           <span>Google Business setup</span>
                         </li>
-                        <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-300">
-                          <CheckCircle size={14} className="text-verdant-accent flex-shrink-0 mt-0.5 sm:hidden" />
+                        <li className="flex items-start gap-2 text-sm text-gray-300 leading-snug">
+                          <CheckCircle size={15} className="text-verdant-accent flex-shrink-0 mt-0.5 sm:hidden" />
                           <CheckCircle size={16} className="text-verdant-accent flex-shrink-0 mt-0.5 hidden sm:block" />
                           <span>Live in 7 days guaranteed</span>
                         </li>
@@ -122,8 +122,8 @@ const PathChoiceModal: React.FC<PathChoiceModalProps> = ({
                     </div>
 
                     <div className="bg-black/30 border border-white/5 rounded-lg p-2 sm:p-3 mb-3 sm:mb-4">
-                      <p className="text-[10px] sm:text-xs text-gray-400 font-medium mb-0.5 sm:mb-1">✓ Perfect for:</p>
-                      <p className="text-[10px] sm:text-xs text-gray-500">
+                      <p className="text-xs text-gray-400 font-medium mb-1">✓ Perfect for:</p>
+                      <p className="text-xs text-gray-500 leading-relaxed">
                         Tradies who need a simple, professional website fast. No complex features needed.
                       </p>
                     </div>
@@ -166,28 +166,28 @@ const PathChoiceModal: React.FC<PathChoiceModalProps> = ({
                       </div>
 
                       <ul className="space-y-1.5 sm:space-y-2 md:space-y-3">
-                        <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-300">
-                          <CheckCircle size={14} className="text-white flex-shrink-0 mt-0.5 sm:hidden" />
+                        <li className="flex items-start gap-2 text-sm text-gray-300 leading-snug">
+                          <CheckCircle size={15} className="text-white flex-shrink-0 mt-0.5 sm:hidden" />
                           <CheckCircle size={16} className="text-white flex-shrink-0 mt-0.5 hidden sm:block" />
                           <span>Discuss your specific needs</span>
                         </li>
-                        <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-300">
-                          <CheckCircle size={14} className="text-white flex-shrink-0 mt-0.5 sm:hidden" />
+                        <li className="flex items-start gap-2 text-sm text-gray-300 leading-snug">
+                          <CheckCircle size={15} className="text-white flex-shrink-0 mt-0.5 sm:hidden" />
                           <CheckCircle size={16} className="text-white flex-shrink-0 mt-0.5 hidden sm:block" />
                           <span>Get custom recommendations</span>
                         </li>
-                        <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-300">
-                          <CheckCircle size={14} className="text-white flex-shrink-0 mt-0.5 sm:hidden" />
+                        <li className="flex items-start gap-2 text-sm text-gray-300 leading-snug">
+                          <CheckCircle size={15} className="text-white flex-shrink-0 mt-0.5 sm:hidden" />
                           <CheckCircle size={16} className="text-white flex-shrink-0 mt-0.5 hidden sm:block" />
                           <span>Review portfolio examples</span>
                         </li>
-                        <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-300">
-                          <CheckCircle size={14} className="text-white flex-shrink-0 mt-0.5 sm:hidden" />
+                        <li className="flex items-start gap-2 text-sm text-gray-300 leading-snug">
+                          <CheckCircle size={15} className="text-white flex-shrink-0 mt-0.5 sm:hidden" />
                           <CheckCircle size={16} className="text-white flex-shrink-0 mt-0.5 hidden sm:block" />
                           <span>Quote for custom features</span>
                         </li>
-                        <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-300">
-                          <CheckCircle size={14} className="text-white flex-shrink-0 mt-0.5 sm:hidden" />
+                        <li className="flex items-start gap-2 text-sm text-gray-300 leading-snug">
+                          <CheckCircle size={15} className="text-white flex-shrink-0 mt-0.5 sm:hidden" />
                           <CheckCircle size={16} className="text-white flex-shrink-0 mt-0.5 hidden sm:block" />
                           <span>Ask all your questions</span>
                         </li>
@@ -195,8 +195,8 @@ const PathChoiceModal: React.FC<PathChoiceModalProps> = ({
                     </div>
 
                     <div className="bg-black/30 border border-white/5 rounded-lg p-2 sm:p-3 mb-3 sm:mb-4">
-                      <p className="text-[10px] sm:text-xs text-gray-400 font-medium mb-0.5 sm:mb-1">✓ Perfect for:</p>
-                      <p className="text-[10px] sm:text-xs text-gray-500">
+                      <p className="text-xs text-gray-400 font-medium mb-1">✓ Perfect for:</p>
+                      <p className="text-xs text-gray-500 leading-relaxed">
                         Businesses with custom requirements, e-commerce needs, or booking systems.
                       </p>
                     </div>
@@ -218,19 +218,19 @@ const PathChoiceModal: React.FC<PathChoiceModalProps> = ({
 
                 {/* Bottom Trust Elements */}
                 <div className="mt-4 sm:mt-6 md:mt-8 pt-3 sm:pt-4 md:pt-6 border-t border-white/5">
-                  <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 text-[10px] sm:text-xs text-gray-500">
+                  <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 text-xs text-gray-500">
                     <div className="flex items-center gap-1.5 sm:gap-2">
-                      <CheckCircle size={12} className="text-verdant-accent sm:hidden" />
+                      <CheckCircle size={13} className="text-verdant-accent sm:hidden" />
                       <CheckCircle size={14} className="text-verdant-accent hidden sm:block" />
                       <span>30-Day Money-Back Guarantee</span>
                     </div>
                     <div className="flex items-center gap-1.5 sm:gap-2">
-                      <CheckCircle size={12} className="text-verdant-accent sm:hidden" />
+                      <CheckCircle size={13} className="text-verdant-accent sm:hidden" />
                       <CheckCircle size={14} className="text-verdant-accent hidden sm:block" />
                       <span>120+ Happy Tradies</span>
                     </div>
                     <div className="flex items-center gap-1.5 sm:gap-2">
-                      <CheckCircle size={12} className="text-verdant-accent sm:hidden" />
+                      <CheckCircle size={13} className="text-verdant-accent sm:hidden" />
                       <CheckCircle size={14} className="text-verdant-accent hidden sm:block" />
                       <span>Australian Based Support</span>
                     </div>

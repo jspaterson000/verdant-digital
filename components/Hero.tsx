@@ -158,19 +158,19 @@ const Hero: React.FC<HeroProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-verdant-accent/10 border border-verdant-accent/30 backdrop-blur-md mb-10 hover:bg-verdant-accent/20 transition-colors mx-4"
+            className="inline-flex items-center gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full bg-verdant-accent/10 border border-verdant-accent/30 backdrop-blur-md mb-6 sm:mb-8 md:mb-10 hover:bg-verdant-accent/20 transition-colors mx-4"
           >
             <span className="relative flex h-2 w-2 flex-shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-verdant-accent opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-verdant-accent"></span>
             </span>
-            <span className="text-[10px] sm:text-xs font-bold text-white tracking-wider whitespace-nowrap">
+            <span className="text-[11px] sm:text-xs font-bold text-white tracking-wider whitespace-nowrap">
               {statusText || "Accepting New Clients: November Slots Open"}
             </span>
           </motion.div>
         )}
 
-        <h1 className="text-[2.75rem] md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-white leading-[1.1] mb-8">
+        <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-white leading-[1.1] mb-6 sm:mb-7 md:mb-8 px-2">
           {headline}
         </h1>
 
@@ -178,30 +178,30 @@ const Hero: React.FC<HeroProps> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 1 }}
-          className="flex flex-col items-center mb-10"
+          className="flex flex-col items-center mb-8 sm:mb-10"
         >
-             <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl leading-relaxed font-light mb-8" dangerouslySetInnerHTML={{__html: subheadline}}>
+             <p className="max-w-2xl mx-auto text-gray-400 text-base sm:text-lg md:text-xl leading-relaxed font-light mb-6 sm:mb-8 px-4" dangerouslySetInnerHTML={{__html: subheadline}}>
             </p>
 
             {priceHighlight && (
-              <div className="mb-10 bg-gradient-to-br from-verdant-900/30 to-verdant-800/20 border-2 border-verdant-accent/40 rounded-2xl p-6 md:p-8 shadow-[0_0_40px_rgba(74,222,128,0.2)] max-w-md mx-auto">
-                <div className="flex items-center justify-center gap-3 mb-2">
+              <div className="mb-6 sm:mb-8 md:mb-10 bg-gradient-to-br from-verdant-900/30 to-verdant-800/20 border-2 border-verdant-accent/40 rounded-2xl p-4 sm:p-6 md:p-8 shadow-[0_0_40px_rgba(74,222,128,0.2)] max-w-md mx-4 sm:mx-auto">
+                <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2">
                   <div className="text-center">
-                    <div className="flex items-baseline justify-center gap-2">
-                      <span className="text-5xl md:text-6xl font-bold text-white">{priceHighlight.setup}</span>
-                      <span className="text-gray-400 text-lg">setup</span>
+                    <div className="flex items-baseline justify-center gap-1 sm:gap-2">
+                      <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white">{priceHighlight.setup}</span>
+                      <span className="text-gray-400 text-sm sm:text-base md:text-lg">setup</span>
                     </div>
                   </div>
-                  <span className="text-3xl text-gray-500">+</span>
+                  <span className="text-2xl sm:text-3xl text-gray-500">+</span>
                   <div className="text-center">
-                    <div className="flex items-baseline justify-center gap-2">
-                      <span className="text-5xl md:text-6xl font-bold text-verdant-accent">{priceHighlight.monthly}</span>
-                      <span className="text-gray-400 text-lg">/mo</span>
+                    <div className="flex items-baseline justify-center gap-1 sm:gap-2">
+                      <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-verdant-accent">{priceHighlight.monthly}</span>
+                      <span className="text-gray-400 text-sm sm:text-base md:text-lg">/mo</span>
                     </div>
                   </div>
                 </div>
                 {priceHighlight.subtext && (
-                  <p className="text-center text-sm text-gray-400 mt-3">
+                  <p className="text-center text-xs sm:text-sm text-gray-400 mt-2 sm:mt-3">
                     {priceHighlight.subtext}
                   </p>
                 )}
@@ -209,13 +209,13 @@ const Hero: React.FC<HeroProps> = ({
             )}
 
             {features && (
-              <div className="flex flex-col items-center text-center">
+              <div className="flex flex-col items-center text-center px-4">
                 {featuresHeading && (
-                  <h3 className="text-white font-bold text-lg mb-4">{featuresHeading}</h3>
+                  <h3 className="text-white font-bold text-base sm:text-lg mb-3 sm:mb-4">{featuresHeading}</h3>
                 )}
-                <div className="flex flex-col gap-3 text-base text-gray-300 items-center">
+                <div className="flex flex-col gap-2 sm:gap-3 text-sm sm:text-base text-gray-300 items-center">
                   {features.map((feat, i) => (
-                     <div key={i} className="flex items-center justify-center gap-3"><CheckCircle2 size={18} className="text-verdant-accent flex-shrink-0"/> <span>{feat}</span></div>
+                     <div key={i} className="flex items-center justify-center gap-2 sm:gap-3"><CheckCircle2 size={16} className="text-verdant-accent flex-shrink-0 sm:hidden"/> <CheckCircle2 size={18} className="text-verdant-accent flex-shrink-0 hidden sm:block"/> <span>{feat}</span></div>
                   ))}
                 </div>
               </div>
@@ -226,36 +226,38 @@ const Hero: React.FC<HeroProps> = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.5 }}
-          className="flex flex-col items-center justify-center gap-4"
+          className="flex flex-col items-center justify-center gap-4 px-4"
         >
           {ctaOnClick ? (
             <button
               onClick={ctaOnClick}
-              className="group relative w-full sm:w-auto px-10 py-5 bg-verdant-accent text-black font-bold uppercase tracking-wider overflow-hidden rounded-sm transition-all hover:scale-105 shadow-[0_0_30px_rgba(74,222,128,0.3)]"
+              className="group relative w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-verdant-accent text-black font-bold uppercase tracking-wider overflow-hidden rounded-sm transition-all hover:scale-105 shadow-[0_0_30px_rgba(74,222,128,0.3)] text-sm sm:text-base"
             >
               <div className="absolute inset-0 bg-white/40 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
               <div className="relative flex items-center justify-center gap-2">
                 {ctaText}
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform sm:hidden" />
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform hidden sm:block" />
               </div>
             </button>
           ) : (
             <a
               href={ctaLink}
               onClick={(e) => handleScrollTo(e, ctaLink)}
-              className="group relative w-full sm:w-auto px-10 py-5 bg-verdant-accent text-black font-bold uppercase tracking-wider overflow-hidden rounded-sm transition-all hover:scale-105 shadow-[0_0_30px_rgba(74,222,128,0.3)]"
+              className="group relative w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-verdant-accent text-black font-bold uppercase tracking-wider overflow-hidden rounded-sm transition-all hover:scale-105 shadow-[0_0_30px_rgba(74,222,128,0.3)] text-sm sm:text-base"
             >
               <div className="absolute inset-0 bg-white/40 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
               <div className="relative flex items-center justify-center gap-2">
                 {ctaText}
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform sm:hidden" />
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform hidden sm:block" />
               </div>
             </a>
           )}
 
           {/* Social Proof Bar */}
           {socialProof && (
-            <div className="mt-2 text-sm text-gray-400">
+            <div className="mt-2 text-xs sm:text-sm text-gray-400">
               {socialProof}
             </div>
           )}
