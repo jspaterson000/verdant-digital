@@ -25,9 +25,10 @@ const projects = [
   }
 ];
 
-// Generate screenshot URL using a free screenshot service
+// Generate screenshot URL using screenshot service
 const getScreenshotUrl = (websiteUrl: string) => {
-  return `https://api.microlink.io/screenshot?url=${encodeURIComponent(websiteUrl)}&viewport.width=1200&viewport.height=630&meta=false&embed=screenshot.url`;
+  // Using thum.io - free screenshot service with better performance
+  return `https://image.thum.io/get/width/1200/crop/800/${websiteUrl}`;
 };
 
 const RecentWorks: React.FC = () => {
