@@ -7,6 +7,7 @@ const projects = [
     category: "Corporate Web Design",
     url: "https://structa.claims",
     desc: "End-to-end claims management platform built for construction professionals. Custom dashboard with real-time tracking, document management, and automated workflows.",
+    image: "/works/structa-claims.jpg",
     color: "from-blue-900 to-slate-900"
   },
   {
@@ -14,6 +15,7 @@ const projects = [
     category: "E-commerce / Brand",
     url: "https://breadbloom.com.au",
     desc: "Artisan bakery e-commerce site featuring online ordering, delivery scheduling, and subscription management. Built with Shopify for seamless checkout experience.",
+    image: "/works/bread-bloom.jpg",
     color: "from-orange-900 to-amber-900"
   },
   {
@@ -21,15 +23,10 @@ const projects = [
     category: "Shopify E-commerce",
     url: "https://newsteadplantco.com.au",
     desc: "Modern plant retailer with inventory management, care guides, and location-based delivery. Optimized for mobile shopping with high-res product photography.",
+    image: "/works/newstead-plant-co.jpg",
     color: "from-green-900 to-emerald-900"
   }
 ];
-
-// Generate screenshot URL using screenshot service
-const getScreenshotUrl = (websiteUrl: string) => {
-  // Using thum.io - free screenshot service with better performance
-  return `https://image.thum.io/get/width/1200/crop/800/${websiteUrl}`;
-};
 
 const RecentWorks: React.FC = () => {
   return (
@@ -57,12 +54,12 @@ const RecentWorks: React.FC = () => {
               {/* Background Image with Gradient Overlay */}
               <div className="absolute inset-0">
                 <img
-                  src={getScreenshotUrl(project.url)}
+                  src={project.image}
                   alt={`${project.name} website preview`}
                   className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                   onError={(e) => {
-                    // Fallback to gradient if screenshot doesn't load
+                    // Fallback to gradient if image doesn't load
                     e.currentTarget.style.display = 'none';
                   }}
                 />

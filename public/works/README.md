@@ -3,22 +3,36 @@
 Place your portfolio website screenshots in this folder.
 
 ## Required Images:
-- `structa-claims.jpg` - Screenshot of Structa Claims website
-- `bread-bloom.jpg` - Screenshot of Bread Bloom website
-- `newstead-plant-co.jpg` - Screenshot of Newstead Plant Co website
+- `structa-claims.jpg` - https://structa.claims
+- `bread-bloom.jpg` - https://breadbloom.com.au
+- `newstead-plant-co.jpg` - https://newsteadplantco.com.au
+
+## Quick Screenshot Guide:
+
+### Method 1: Browser Screenshot (Easiest)
+1. Open each website in Chrome/Edge
+2. Press `F12` to open DevTools
+3. Press `Ctrl+Shift+P` (Windows) or `Cmd+Shift+P` (Mac)
+4. Type "screenshot" and select **"Capture full size screenshot"**
+5. Save as the filename above
+
+### Method 2: Online Screenshot Tool
+1. Visit https://www.screenshotmachine.com or https://screenshot.guru
+2. Enter the website URL
+3. Download the screenshot
+4. Save with the exact filename listed above
+
+### Method 3: Browser Extension
+- Install "Awesome Screenshot" or "Fireshot" extension
+- Visit each website and click the extension icon
+- Capture full page or visible area
+- Save with the correct filename
 
 ## Image Guidelines:
-- **Format:** JPG or PNG
-- **Dimensions:** 800x600px or larger (landscape orientation)
-- **Quality:** High resolution, clear screenshot of the website homepage
-- **File size:** Optimize to under 500KB for fast loading
+- **Format:** JPG or PNG (JPG preferred for smaller file size)
+- **Dimensions:** Minimum 1200x800px (landscape orientation)
+- **Quality:** High resolution, showing the hero/header section clearly
+- **File size:** Optimize to 200-500KB for fast loading (use https://tinyjpg.com)
 
-## How to Get Screenshots:
-1. Visit each website URL
-2. Take a full-page screenshot or capture the hero section
-3. Crop/resize to focus on the best part of the design
-4. Save with the exact filename listed above
-5. Place in this folder
-
-## Temporary Solution:
-The component will show gradient backgrounds if images are missing, so the site works without them.
+## Fallback:
+If screenshots are missing, gradient backgrounds will show instead (current state).
