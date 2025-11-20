@@ -7,7 +7,6 @@ const projects = [
     category: "Corporate Web Design",
     url: "https://structa.claims",
     desc: "End-to-end claims management platform built for construction professionals. Custom dashboard with real-time tracking, document management, and automated workflows.",
-    image: "/works/structa-claims.svg",
     color: "from-blue-900 to-slate-900"
   },
   {
@@ -15,7 +14,6 @@ const projects = [
     category: "E-commerce / Brand",
     url: "https://breadbloom.com.au",
     desc: "Artisan bakery e-commerce site featuring online ordering, delivery scheduling, and subscription management. Built with Shopify for seamless checkout experience.",
-    image: "/works/bread-bloom.svg",
     color: "from-orange-900 to-amber-900"
   },
   {
@@ -23,10 +21,14 @@ const projects = [
     category: "Shopify E-commerce",
     url: "https://newsteadplantco.com.au",
     desc: "Modern plant retailer with inventory management, care guides, and location-based delivery. Optimized for mobile shopping with high-res product photography.",
-    image: "/works/newstead-plant-co.svg",
     color: "from-green-900 to-emerald-900"
   }
 ];
+
+// Generate screenshot URL using a free screenshot service
+const getScreenshotUrl = (websiteUrl: string) => {
+  return `https://api.microlink.io/screenshot?url=${encodeURIComponent(websiteUrl)}&viewport.width=1200&viewport.height=630&meta=false&embed=screenshot.url`;
+};
 
 const RecentWorks: React.FC = () => {
   return (
@@ -54,11 +56,12 @@ const RecentWorks: React.FC = () => {
               {/* Background Image with Gradient Overlay */}
               <div className="absolute inset-0">
                 <img
-                  src={project.image}
+                  src={getScreenshotUrl(project.url)}
                   alt={`${project.name} website preview`}
                   className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
                   onError={(e) => {
-                    // Fallback to gradient if image doesn't load
+                    // Fallback to gradient if screenshot doesn't load
                     e.currentTarget.style.display = 'none';
                   }}
                 />
