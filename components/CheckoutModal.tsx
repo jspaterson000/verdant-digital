@@ -605,49 +605,53 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, onRedire
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.2 }}
-                      className="min-h-[400px] max-w-xl mx-auto"
+                      className="max-w-xl mx-auto"
                     >
                       {/* Clean, Centered Card */}
-                      <div className="text-center mb-6">
-                        <h3 className="text-2xl font-bold text-white mb-2">Your Website's Built to Convert — Now Let's Make Sure People Find It 🚀</h3>
+                      <div className="text-center mb-4 sm:mb-6">
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">Your Website's Built to Convert — Now Let's Make Sure People Find It 🚀</h3>
                       </div>
 
                       {/* Setting Expectations - Natural Context */}
-                      <div className="bg-zinc-900/50 border border-white/10 rounded-lg p-4 mb-6">
-                        <p className="text-gray-300 text-sm text-center leading-relaxed">
+                      <div className="bg-zinc-900/50 border border-white/10 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6">
+                        <p className="text-gray-300 text-xs sm:text-sm text-center leading-relaxed">
                           A quick reality check: even the best-designed website won't generate leads on its own. To get real traffic and real customers, you need Google Ads, SEO, or word-of-mouth. <strong className="text-white">We can handle this part for you.</strong>
                         </p>
                       </div>
 
                       {/* Single Focused Card */}
-                      <div className="bg-gradient-to-br from-verdant-900/20 to-blue-900/10 border border-verdant-accent/30 rounded-xl p-8 mb-6">
-                        <div className="flex items-center justify-center gap-3 mb-4">
-                          <div className="w-12 h-12 rounded-full bg-verdant-accent/20 flex items-center justify-center">
-                            <Zap size={24} className="text-verdant-accent" />
+                      <div className="bg-gradient-to-br from-verdant-900/20 to-blue-900/10 border border-verdant-accent/30 rounded-xl p-4 sm:p-6 md:p-8 mb-4 sm:mb-6">
+                        <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-verdant-accent/20 flex items-center justify-center">
+                            <Zap size={20} className="text-verdant-accent sm:hidden" />
+                            <Zap size={24} className="text-verdant-accent hidden sm:block" />
                           </div>
                           <div className="text-left">
-                            <div className="text-sm text-gray-400">Add Google Ads</div>
-                            <div className="text-2xl font-bold text-white">+$400<span className="text-lg text-gray-400">/mo</span></div>
+                            <div className="text-xs sm:text-sm text-gray-400">Add Google Ads</div>
+                            <div className="text-xl sm:text-2xl font-bold text-white">+$400<span className="text-sm sm:text-lg text-gray-400">/mo</span></div>
                           </div>
                         </div>
 
-                        <ul className="space-y-3 mb-6">
-                          <li className="flex items-start gap-3 text-gray-300">
-                            <CheckCircle size={20} className="text-verdant-accent flex-shrink-0 mt-0.5" />
+                        <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+                          <li className="flex items-start gap-2 sm:gap-3 text-gray-300 text-xs sm:text-sm">
+                            <CheckCircle size={16} className="text-verdant-accent flex-shrink-0 mt-0.5 sm:hidden" />
+                            <CheckCircle size={20} className="text-verdant-accent flex-shrink-0 mt-0.5 hidden sm:block" />
                             <span>We run ads targeting people actively searching for your services in your area</span>
                           </li>
-                          <li className="flex items-start gap-3 text-gray-300">
-                            <CheckCircle size={20} className="text-verdant-accent flex-shrink-0 mt-0.5" />
+                          <li className="flex items-start gap-2 sm:gap-3 text-gray-300 text-xs sm:text-sm">
+                            <CheckCircle size={16} className="text-verdant-accent flex-shrink-0 mt-0.5 sm:hidden" />
+                            <CheckCircle size={20} className="text-verdant-accent flex-shrink-0 mt-0.5 hidden sm:block" />
                             <span><strong className="text-white">$300/month ad budget included</strong> - that's 50+ clicks to your new website</span>
                           </li>
-                          <li className="flex items-start gap-3 text-gray-300">
-                            <CheckCircle size={20} className="text-verdant-accent flex-shrink-0 mt-0.5" />
+                          <li className="flex items-start gap-2 sm:gap-3 text-gray-300 text-xs sm:text-sm">
+                            <CheckCircle size={16} className="text-verdant-accent flex-shrink-0 mt-0.5 sm:hidden" />
+                            <CheckCircle size={20} className="text-verdant-accent flex-shrink-0 mt-0.5 hidden sm:block" />
                             <span>Most tradies see their first lead request within 48 hours</span>
                           </li>
                         </ul>
 
-                        <div className="bg-verdant-accent/10 border border-verdant-accent/30 rounded-lg p-3 text-center">
-                          <p className="text-gray-300 text-sm">
+                        <div className="bg-verdant-accent/10 border border-verdant-accent/30 rounded-lg p-2 sm:p-3 text-center">
+                          <p className="text-gray-300 text-xs sm:text-sm">
                             <strong className="text-verdant-accent">Average result:</strong> 10-15 qualified leads in month one
                           </p>
                         </div>
@@ -659,7 +663,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, onRedire
                           setWantsGoogleAds(true);
                           setStep('business-info');
                         }}
-                        className="w-full bg-verdant-accent text-black font-bold py-4 px-6 rounded-lg hover:bg-white transition-all mb-3 text-lg"
+                        className="w-full bg-verdant-accent text-black font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-lg hover:bg-white transition-all mb-3 text-base sm:text-lg"
                       >
                         Add Google Ads - Start Getting Leads
                       </button>
