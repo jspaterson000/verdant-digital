@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CheckCircle, Calendar, ArrowLeft, Clock, Phone } from 'lucide-react';
+import { X, CheckCircle, ArrowLeft, Clock, Phone } from 'lucide-react';
 
 interface ConsultationModalProps {
   isOpen: boolean;
@@ -9,7 +9,6 @@ interface ConsultationModalProps {
 }
 
 const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, onBack }) => {
-  const [step, setStep] = useState<'form' | 'calendar'>('form');
   const [formData, setFormData] = useState({
     name: '',
     businessName: '',
@@ -48,7 +47,6 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
 
       if (data.success) {
         setSubmitStatus('success');
-        setStep('calendar');
       } else {
         setSubmitStatus('error');
       }
@@ -100,7 +98,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
               {/* Content */}
               <div className="p-6">
                 <AnimatePresence mode="wait">
-                  {step === 'form' && (
+                  {submitStatus !== 'success' && (
                     <motion.div
                       key="form"
                       initial={{ opacity: 0, x: 20 }}
@@ -253,23 +251,18 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
                             <>Processing...</>
                           ) : (
                             <>
-                              <Calendar size={20} />
-                              Continue to Calendar
+                              <CheckCircle size={20} />
+                              Submit Request
                             </>
                           )}
                         </button>
-
-                        <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
-                          <Clock size={12} />
-                          <span>Next available slots show on next screen</span>
-                        </div>
                       </form>
                     </motion.div>
                   )}
 
-                  {step === 'calendar' && (
+                  {submitStatus === 'success' && (
                     <motion.div
-                      key="calendar"
+                      key="success"
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
@@ -285,43 +278,46 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
                           <CheckCircle size={32} className="text-black" />
                         </motion.div>
 
-                        <h3 className="text-2xl font-bold text-white mb-2">Details Received!</h3>
+                        <h3 className="text-2xl font-bold text-white mb-2">Request Received!</h3>
                         <p className="text-gray-400 mb-6">
-                          We've sent you a confirmation email with booking details.
+                          Thank you for your interest. We'll call you within 24 hours to arrange a consultation time that works for you.
                         </p>
 
-                        {/* Calendly Embed Placeholder */}
-                        <div className="bg-zinc-900/50 border border-white/10 rounded-lg p-8 mb-6">
-                          <Calendar size={48} className="text-verdant-accent mx-auto mb-4" />
-                          <p className="text-white font-medium mb-2">Book Your Time Slot</p>
-                          <p className="text-gray-400 text-sm mb-4">
-                            Click below to choose a time that works for you
-                          </p>
-
-                          {/* Replace this with actual Calendly embed */}
-                          <a
-                            href="https://calendly.com/your-calendar-link"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 bg-verdant-accent text-black font-bold px-6 py-3 rounded-lg hover:bg-white transition-all"
-                          >
-                            <Calendar size={18} />
-                            Open Calendar
-                          </a>
-
-                          <p className="text-xs text-gray-500 mt-4">
-                            Or we'll call you within 24 hours to arrange a time
-                          </p>
+                        <div className="bg-verdant-900/20 border border-verdant-accent/20 rounded-lg p-6 mb-6">
+                          <div className="flex items-center justify-center gap-3 mb-4">
+                            <Clock size={24} className="text-verdant-accent" />
+                            <p className="text-white font-medium">What happens next?</p>
+                          </div>
+                          <ul className="space-y-3 text-sm text-gray-300 text-left max-w-md mx-auto">
+                            <li className="flex items-start gap-2">
+                              <div className="w-1.5 h-1.5 rounded-full bg-verdant-accent mt-1.5"></div>
+                              <span>We'll review your requirements</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <div className="w-1.5 h-1.5 rounded-full bg-verdant-accent mt-1.5"></div>
+                              <span>A team member will call you within 24 hours</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <div className="w-1.5 h-1.5 rounded-full bg-verdant-accent mt-1.5"></div>
+                              <span>We'll schedule a 15-minute consultation at a time that suits you</span>
+                            </li>
+                          </ul>
                         </div>
 
-                        {/* Alternative Contact */}
-                        <div className="bg-black/30 border border-white/5 rounded-lg p-4">
-                          <p className="text-gray-400 text-sm mb-2">Prefer to call us?</p>
+                        <div className="bg-black/30 border border-white/5 rounded-lg p-4 mb-6">
+                          <p className="text-gray-400 text-sm mb-2">Can't wait? Call us now:</p>
                           <a href="tel:1300XXXXXX" className="flex items-center justify-center gap-2 text-white font-medium hover:text-verdant-accent transition-colors">
                             <Phone size={18} />
                             1300 XXX XXX
                           </a>
                         </div>
+
+                        <button
+                          onClick={onClose}
+                          className="text-gray-400 hover:text-white transition-colors text-sm"
+                        >
+                          Close
+                        </button>
                       </div>
                     </motion.div>
                   )}
